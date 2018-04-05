@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Modus</title>
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 <body>
 <header>
@@ -34,11 +33,12 @@
             </ul>
         </nav>
     </div>
-</header><div id="slide">
+</header>
+<div id="slide">
     <img src="images/slide.jpg" height="100%" width="100%"/>
 </div>
 <div id="slide2">
-    <div id="slide2_left">  <img src="images/slide.jpg" height="100%" width="100%"/></div>
+    <div id="slide2_left"><img src="images/slide.jpg" height="100%" width="100%"/></div>
     <div id="slide2_right"><img src="images/slide 2.jpg" height="120px" width="100%"/>
         <h4>SLIDEBAR GALLERY</h4>
         <img src="images/slide3.jpg" height="40" width="70" vspace="7px" hspace="5px"/>
@@ -76,9 +76,105 @@
         </ul>
     </div>
 </div>
-<div id="conten2">
-    <button type="button">Simple collapsible</button>
+<div id="content2">
+    <div id="content2_left">
+        <button type="button" class="accordion"><b>Simple collapsible</b></button>
+        <div class="panel">
+            <p> consequat.</p>
+        </div>
+        <button type="button" class="accordion"><b>Simple collapsible</b></button>
+        <div class="panel">
+            <p> ex ea commodo consequat.</p>
+        </div>
+        <button type="button" class="accordion"><b>Simple collapsible</b></button>
+        <div class="panel">
+            <p> ex ea commodo consequat.</p>
+        </div>
+    </div>
+    <div id="content2_right">
+        <button type="button" class="accordion"><b>Simple collapsible</b></button>
+        <div class="panel">
+            <p> consequat.</p>
+        </div>
+        <button type="button" class="accordion"><b>Simple collapsible</b></button>
+        <div class="panel">
+            <p> ex ea commodo consequat.</p>
+        </div>
+        <button type="button" class="accordion"><b>Simple collapsible</b></button>
+        <div class="panel">
+            <p> ex ea commodo consequat.</p>
+        </div>
+    </div>
 </div>
+<div id="tab">
+    <div id="tab_left">
+        <div class="tab">
+            <button class="tablinks" onclick="opentab(event, 'tab.')">TAB TITLE</button>
+            <button class="tablinks" onclick="opentab(event, 'tab1')">TAB TITLE</button>
+            <button class="tablinks" onclick="opentab(event, 'tab2')">TAB TITLE</button>
+            <button class="tablinks" onclick="opentab(event, 'tab3')">TAB TITLE</button>
+        </div>
+        ​
+        <div id="tab." class="tabcontent">
+            <p>Test0<img src="images/girl.png" height="80px" width="120px" style="float: right"/></p>
+        </div>
+        <div id="tab1" class="tabcontent">
+            <p>Test.<img src="images/girl.png" height="80px" width="120px" style="float: right"/></p>
+        </div>
+        ​
+        <div id="tab2" class="tabcontent">
+            <p>Test 1<img src="images/girl.png" height="80px" width="120px" style="float: right"/></p>
+        </div>
+        ​
+        <div id="tab3" class="tabcontent">
+            <p>Test 2<img src="images/girl.png" height="80px" width="120px" style="float: right"/></p>
+        </div>
+        ​
+    </div>
+    <div id="tab_right">
+        <div class="tab">
+            <button class="tablinks" onclick="opentab(event, 'tab4')">TAB TITLE</button>
+            <button class="tablinks" onclick="opentab(event, 'tab5')">TAB TITLE</button>
+        </div>
+        ​
+        <div id="tab4" class="tabcontent">
+            <p>Test.</p>
+        </div>
+        <div id="tab5" class="tabcontent">
+            <p>Test 1.</p>
+        </div>
+    </div>
+</div>
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
 
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    }
+</script>
+<script>
+    function opentab(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+</script>
 </body>
 </html>
